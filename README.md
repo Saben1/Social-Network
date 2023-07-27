@@ -35,7 +35,7 @@ After seeding the database, you can test the API using Insomnia or similar tools
 
 ## Demo Video
 
-[Link to Demo Video](https://github.com/Saben1/Social-Network/issues/1#issue-1823917204)
+[Demo Video](https://github.com/Saben1/Social-Network/issues/1#issue-1823917204)
 
 
 ## Contact Information
