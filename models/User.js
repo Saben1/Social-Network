@@ -14,26 +14,20 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: true,
-            validate: {
-                validator: function (value) {
-                    // Use a regular expression to validate the email format
-                    return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value);
-                },
-                message: 'Email validation failed'
-            }
+            match: [/\w+@\w+(\.\w{2,3})+/, "Invalid email"]
         },
         // Thoughts field (array of references to 'thought' documents)
         thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'thought'
+                ref: 'Thought'
             }
         ],
         // Friends field (array of references to other 'user' documents)
         friends: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'user'
+                ref: 'User'
             }
         ]
     },
@@ -51,6 +45,6 @@ userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });
 
-const User = model('user', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
